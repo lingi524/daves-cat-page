@@ -79,13 +79,13 @@ const Popup: React.FC<PopupProps> = ({ setShowPopup, setCats, cats }) => {
           </div>
 
           <div className="w-full">
-            <label className="block   tracking-wide  text-black text-xs font-bold mb-2">
+            <label className="block tracking-wide  text-black text-xs font-bold mb-2">
               Cat biography
             </label>
             <textarea
               className="appearance-none block w-full bg-gray-200  text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              id="name"
-              placeholder="Jane"
+              id="bio"
+              placeholder="Some info about the cat"
               onChange={(e) => setBio(e.target.value)}
             />
           </div>
