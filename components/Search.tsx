@@ -1,4 +1,4 @@
-export default function SearchBar() {
+const SearchBar = () => {
   return (
     <div>
       <label className="mb-2 text-sm font-medium text-gray-900 sr-only">
@@ -26,11 +26,13 @@ export default function SearchBar() {
           type="search"
           name="search "
           id="default-search"
-          className="block w-full p-2 pl-10 text-sm text-gray-900  rounded-xl bg-gray-50 focus:ring-pink-500 focus:border-pink-500"
+          className="block w-full p-2 pl-10 text-sm text-gray-900  rounded-xl bg-gray-50 focus:ring-pink-500 focus:border-pink-500 border-2 border-solid border-pink-500"
           placeholder="Search for kitties"
           required
         />
       </div>
     </div>
   );
-}
+};
+
+export default SearchBar;
