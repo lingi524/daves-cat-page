@@ -34,3 +34,4 @@ I have some comments in the code in the places where I have unfinished business.
 - Add form validation. I would have added a validation function that were to run on submit and that function can then call the actual submit/updateState functions
 - Image upload. I have not worked with that were there have already been a pipeline and server set up where images can be stored, so I ran into some issues there.
 - Use state management, I made the decision that this project was too small to benefit from a state management library, but I do have a few shared states that would have been nice to have handled
+- I initally wanted to make a new page with a cat graveyard for all the deleted cats, but that both felt a bit too morbid, and I really had to focus on the basics this time
