@@ -11,9 +11,9 @@ const Main = () => {
   const initialCats: CatProps[] = [
     {
       id: 0,
-      name: "Lisa Larsson",
-      gender: "Female",
-      bio: "A great Swedish painter and a sweet cat",
+      name: "Lingon",
+      gender: "Male",
+      bio: "Lingon is named after the berry and was adopted from a farm. He does bite quite a bit but we still love him!",
       date: "1",
       month: "August",
       year: "2018",
@@ -23,7 +23,7 @@ const Main = () => {
       id: 1,
       name: "Beans",
       gender: "Female",
-      bio: "Sweetest fkn kitty",
+      bio: "Beans is a very sweet little kittie! Does not bite that much",
       date: "2",
       month: "April",
       year: "2022",

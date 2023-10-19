@@ -8,9 +8,15 @@ const CatCard = ({ cat, cats, setCats, setShowPopup }: CatCardProps) => {
     setCats(updateCats);
   }
 
-  function updateCatInfo(id: number) {
+  function updateCatInfo(selectedId: number) {
+    const allCatsInStorage = JSON.parse(localStorage.getItem("cats")!);
+    const selectedCat = allCatsInStorage.find(
+      (cat: { id: number }) => cat.id === selectedId
+    );
+    console.log(selectedCat);
     setShowPopup(true);
-    console.log("updating...");
+    //Ideally I'd like to display the already existing data in the popup by sending the selectedCat up to that component
+    //And then update the entry in the array with the matching id on save
   }
 
   return (
@@ -41,6 +47,8 @@ const CatCard = ({ cat, cats, setCats, setShowPopup }: CatCardProps) => {
         width={150}
         height={150}
         alt="A frame that contains a picture of a cat"
+        className="w-auto h-auto"
+        priority
       />
       <div className="flex flex-col w-full gap-2">
         <p className="text-2xl">{cat.name}</p>

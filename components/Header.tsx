@@ -10,6 +10,8 @@ const Header = () => {
         width={500}
         height={500}
         alt="Logo for Dave's cat page"
+        priority
+        className="w-auto h-auto"
       />
       <SearchBar />
     </div>

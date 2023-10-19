@@ -11,7 +11,7 @@ const Popup: React.FC<PopupProps> = ({ setShowPopup, setCats, cats }) => {
   const [year, setYear] = useState<string>("2010");
   const [image, setImage] = useState<string>("");
 
-  const handleFormSubmit = (e: any) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let id = cats.length > 0 ? Math.max(...cats.map((t) => t.id)) + 1 : 0;
     setCats([...cats, { id, name, gender, bio, date, month, year, image }]);
@@ -22,7 +22,9 @@ const Popup: React.FC<PopupProps> = ({ setShowPopup, setCats, cats }) => {
     const selectedFile = event.target.files?.[0];
     if (selectedFile) {
       console.log("Selected file:", selectedFile);
+      setImage(selectedFile.name);
     }
+    //The select works but I've not had the time to set up a server to host the images so that I can use them
   };
 
   return (
@@ -56,11 +58,14 @@ const Popup: React.FC<PopupProps> = ({ setShowPopup, setCats, cats }) => {
               className="block appearance-none w-full bg-gray-200 border border-gray-200  text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="gender"
               onChange={(e) => setGender(e.target.value)}
+              defaultValue={"DEFAULT"}
             >
-              <option disabled selected></option>
-              <option>Female</option>
-              <option>Male</option>
-              <option>They have not told me their gender</option>
+              <option value="DEFAULT" disabled></option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="They have not told me their gender">
+                They have not told me their gender
+              </option>
             </select>
             <div className="pointer-events-none absolute top-10 right-0 flex items-center px-2  text-black">
               <svg
@@ -73,18 +78,16 @@ const Popup: React.FC<PopupProps> = ({ setShowPopup, setCats, cats }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap">
-            <div className="w-full">
-              <label className="block   tracking-wide  text-black text-xs font-bold mb-2">
-                Cat biography
-              </label>
-              <textarea
-                className="appearance-none block w-full bg-gray-200  text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="name"
-                placeholder="Jane"
-                onChange={(e) => setBio(e.target.value)}
-              />
-            </div>
+          <div className="w-full">
+            <label className="block   tracking-wide  text-black text-xs font-bold mb-2">
+              Cat biography
+            </label>
+            <textarea
+              className="appearance-none block w-full bg-gray-200  text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              id="name"
+              placeholder="Jane"
+              onChange={(e) => setBio(e.target.value)}
+            />
           </div>
 
           <div className="flex flex-wrap -mx-3 mb-2">
@@ -109,20 +112,21 @@ const Popup: React.FC<PopupProps> = ({ setShowPopup, setCats, cats }) => {
                   className="block appearance-none w-full bg-gray-200 border border-gray-200  text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="month"
                   onChange={(e) => setMonth(e.target.value)}
+                  defaultValue={"DEFAULT"}
                 >
-                  <option disabled selected></option>
-                  <option>January</option>
-                  <option>February</option>
-                  <option>March</option>
-                  <option>April</option>
-                  <option>May</option>
-                  <option>June</option>
-                  <option>July</option>
-                  <option>August</option>
-                  <option>September</option>
-                  <option>October</option>
-                  <option>November</option>
-                  <option>December</option>
+                  <option value="DEFAULT" disabled></option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2  text-black">
                   <svg
@@ -147,7 +151,20 @@ const Popup: React.FC<PopupProps> = ({ setShowPopup, setCats, cats }) => {
                 onChange={(e) => setYear(e.target.value)}
               />
             </div>
-            <div className="flex flex-wrap"></div>
+          </div>
+          <div className="flex flex-wrap">
+            <div className="w-full">
+              <label className="block tracking-wide text-black text-xs font-bold mb-2">
+                Cat Image
+              </label>
+              <p className="text-gray-400">I dont work just yet ☺️</p>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileUpload}
+                className="appearance-none block w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              />
+            </div>
           </div>
         </form>
         <div className="flex flex-row gap-5 justify-between">

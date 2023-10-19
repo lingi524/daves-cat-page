@@ -27,7 +27,7 @@ const SearchBar = () => {
           name="search "
           id="default-search"
           className="block w-full p-2 pl-10 text-sm text-gray-900  rounded-xl bg-gray-50 focus:ring-pink-500 focus:border-pink-500 focus:border-2 focus:border-solid"
-          placeholder="Search for kitties"
+          placeholder="(Soon! ☺️) Search for kitties"
           required
         />
       </div>
